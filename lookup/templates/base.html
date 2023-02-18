@@ -12,7 +12,7 @@
     <style>
         .Good {background-color: lightgreen;}
         .Moderate {background-color: yellow;}
-        .Unhealthy-for-Sensitive-Groups {background-color: orange;}
+        .Unhealthy-for-sensitive-groups {background-color: orange;}
         .Unhealthy {background-color: red   ;}
         .Very-Unhealthy {background-color: purple;}
         .Hazardous {background-color: maroon;}
@@ -32,9 +32,10 @@
               <a class="nav-link" href="{% url 'about' %}">About me</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+          <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Enter PinCode" aria-label="Search" name="PinCode">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Check</button>
           </form>
         </div>
       </nav>

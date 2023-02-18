@@ -3,6 +3,11 @@
 {% block content %}
 
 </br>
+
+{% if PinCode %}
+    {{ PinCode }}
+{% endif %}
+
 {% if api %}
     {% if api == "Error!!!" %}
         There was an error! Please try again later.
