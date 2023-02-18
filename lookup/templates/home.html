@@ -7,23 +7,12 @@
     {% if api == "Error!!!" %}
         There was an error! Please try again later.
     {% else %}
-    <div class="jumbotron">
+    <div class="jumbotron {{cat_clr}}">
         <h1 class="display-4">{{ api.0.Category.Name }}</h1>
         <p class="lead">The Current air quality of {{ api.0.ReportingArea }} is: {{ api.0.AQI }}</p>
-        {% if api.0.Category.Name == "Good" %}
-            <p>Air quality is satisfactory, and air pollution poses little or no risk.</p>
-        {% elif api.0.Category.Name == "Moderate" %}
-            <p>Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.</p>
-        {% elif api.0.Category.Name == "Unhealthy for Sensitive Groups" %}
-            <p>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</p>
-        {% elif api.0.Category.Name == "Unhealthy" %}
-            <p>Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.</p>
-        {% elif api.0.Category.Name == "Very Unhealthy" %}
-            <p>Health alert: The risk of health effects is increased for everyone.</p>
-        {% elif api.0.Category.Name == "Hazardous" %}
-            <p>Health warning of emergency conditions: everyone is more likely to be affected.</p>
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        {% endif %}
+        
+        {{ cat_desc }} 
+
       </div>
 
         
