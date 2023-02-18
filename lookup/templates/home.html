@@ -2,6 +2,17 @@
 
 {% block content %}
 
-<h1>Arnav Krishna P told me a secret. To know that go to about page on top panel.</h1>
+<h1>You are at home Page</h1>
+</br>
+{% if api %}
+    {% if api == "Error!!!" %}
+        There was an error! Please try again later.
+    {% else %}
+        Air Quality: {{ api.0.AQI }}<br/>
+        Location: {{ api.0.ReportingArea }}<br/>
+        Air condition: {{ api.0.Category.Name }}<br/>
+    {% endif %}
+{% endif %}
+
 
 {% endblock %}
