@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+</br>
+
+{% if PinCode %}
+    {{ PinCode }}
+{% endif %}
+
+{% if api %}
+    {% if api == "Error!!!" %}
+        There was an error! Please try again later.
+    {% else %}
+    <div class="jumbotron {{cat_clr}}">
+        <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+        <p class="lead">The Current air quality of {{ api.0.ReportingArea }} is: {{ api.0.AQI }}</p>
+        
+        {{ cat_desc }} 
+
+      </div>
+
+        
+    {% endif %}
+{% endif %}
+
+<!--Air Quality: {{ api.0.AQI }}<br/>-->
+<!--Location: {{ api.0.ReportingArea }}<br/>-->
+<!--Air condition: {{ api.0.Category.Name }}<br/>-->
+{% endblock %}
